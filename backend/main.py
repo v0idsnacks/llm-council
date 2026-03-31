@@ -3,7 +3,7 @@
 import asyncio
 import json
 import uuid
-from typing import Any, Dict, List
+from typing import Any, Dict, List, Optional
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -44,7 +44,7 @@ class DebateMetadata(BaseModel):
     id: str
     created_at: str
     title: str
-    topic: str | None
+    topic: Optional[str]
     message_count: int
 
 
@@ -54,7 +54,7 @@ class Debate(BaseModel):
     id: str
     created_at: str
     title: str
-    topic: str | None
+    topic: Optional[str]
     messages: List[Dict[str, Any]]
 
 
