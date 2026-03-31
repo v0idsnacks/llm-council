@@ -1,14 +1,13 @@
-# LLM Council
+# Debate System
 
-![llmcouncil](header.jpg)
+This repository is a local multi-agent debate application that uses OpenRouter models to run a structured 4-stage debate on a user-provided topic.
 
-The idea of this repo is that instead of asking a question to your favorite LLM provider (e.g. OpenAI GPT 5.1, Google Gemini 3.0 Pro, Anthropic Claude Sonnet 4.5, xAI Grok 4, eg.c), you can group them into your "LLM Council". This repo is a simple, local web app that essentially looks like ChatGPT except it uses OpenRouter to send your query to multiple LLMs, it then asks them to review and rank each other's work, and finally a Chairman LLM produces the final response.
+When you submit a topic, the system runs:
 
-In a bit more detail, here is what happens when you submit a query:
-
-1. **Stage 1: First opinions**. The user query is given to all LLMs individually, and the responses are collected. The individual responses are shown in a "tab view", so that the user can inspect them all one by one.
-2. **Stage 2: Review**. Each individual LLM is given the responses of the other LLMs. Under the hood, the LLM identities are anonymized so that the LLM can't play favorites when judging their outputs. The LLM is asked to rank them in accuracy and insight.
-3. **Stage 3: Final response**. The designated Chairman of the LLM Council takes all of the model's responses and compiles them into a single final answer that is presented to the user.
+1. **Stage 1: Opening arguments** from a Pro agent and an Against agent.
+2. **Stage 2: Rebuttals** where each side responds to the other.
+3. **Stage 3: Final statements** from both sides.
+4. **Stage 4: Judge evaluation** with verdict and confidence.
 
 ## Vibe Code Alert
 
@@ -44,17 +43,12 @@ Get your API key at [openrouter.ai](https://openrouter.ai/). Make sure to purcha
 
 ### 3. Configure Models (Optional)
 
-Edit `backend/config.py` to customize the council:
+Edit `backend/config.py` to customize debate agents:
 
 ```python
-COUNCIL_MODELS = [
-    "openai/gpt-5.1",
-    "google/gemini-3-pro-preview",
-    "anthropic/claude-sonnet-4.5",
-    "x-ai/grok-4",
-]
-
-CHAIRMAN_MODEL = "google/gemini-3-pro-preview"
+PRO_MODEL = "openai/gpt-5.1"
+AGAINST_MODEL = "anthropic/claude-sonnet-4.5"
+JUDGE_MODEL = "google/gemini-3-pro-preview"
 ```
 
 ## Running the Application
@@ -83,5 +77,5 @@ Then open http://localhost:5173 in your browser.
 
 - **Backend:** FastAPI (Python 3.10+), async httpx, OpenRouter API
 - **Frontend:** React + Vite, react-markdown for rendering
-- **Storage:** JSON files in `data/conversations/`
+- **Storage:** JSON files in `data/debates/`
 - **Package Management:** uv for Python, npm for JavaScript

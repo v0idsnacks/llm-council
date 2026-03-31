@@ -1,6 +1,6 @@
 """Multi-Agent Debate System orchestration.
 
-Maps onto the existing LLM Council architecture:
+Debate system architecture:
   - Pro Agent   → affirmative arguments (uses PRO_MODEL)
   - Against Agent → counterarguments (uses AGAINST_MODEL)
   - Judge Agent   → verdict + confidence score (uses JUDGE_MODEL)
