@@ -18,6 +18,34 @@
   color: #333;
 }
 
+.mode-toggle {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+  background: #e8e8e8;
+  border-radius: 6px;
+  padding: 3px;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #666;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.mode-btn.active {
+  background: #fff;
+  color: #333;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
 .new-conversation-btn {
   width: 100%;
   padding: 10px;
@@ -34,6 +62,16 @@
 .new-conversation-btn:hover {
   background: #357abd;
   border-color: #357abd;
+}
+
+.new-debate-btn {
+  background: #7b1fa2;
+  border-color: #7b1fa2;
+}
+
+.new-debate-btn:hover {
+  background: #6a1b9a;
+  border-color: #6a1b9a;
 }
 
 .conversation-list {
@@ -76,3 +114,9 @@
   color: #999;
   font-size: 12px;
 }
+
+.debate-topic-preview {
+  color: #888;
+  font-style: italic;
+}
+
