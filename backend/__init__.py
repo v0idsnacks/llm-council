@@ -1,1 +1,1 @@
-"""LLM Council backend package."""
+"""Debate backend package."""
