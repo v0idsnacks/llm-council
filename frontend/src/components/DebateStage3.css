@@ -1,0 +1,17 @@
+/* Final Statements stage */
+.debate-stage3 {
+  background: #f3e5f5;
+  border-color: #ce93d8;
+}
+
+.debate-stage3 .pro-header {
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-bottom: 2px solid #a5d6a7;
+}
+
+.debate-stage3 .against-header {
+  background: #fce4ec;
+  color: #c62828;
+  border-bottom: 2px solid #ef9a9a;
+}
